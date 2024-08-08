@@ -2,6 +2,8 @@ package phc.rest_api_dev_week.model;
 
 import jakarta.persistence.*;
 
+import java.math.BigDecimal;
+
 @Entity(name = "tb_card")
 public class Card {
 
@@ -13,8 +15,8 @@ public class Card {
     private String number;
 
     //@Column(scale = 13, precision = 2)
-    @Column(precision = 2)
-    private float available_limit;
+    @Column(precision = 13, scale = 2)
+    private BigDecimal available_limit;
 
     public Long getId() {
         return id;
@@ -32,11 +34,11 @@ public class Card {
         this.number = number;
     }
 
-    public float getLimit() {
+    public BigDecimal getLimit() {
         return available_limit;
     }
 
-    public void setLimit(float limit) {
+    public void setLimit(BigDecimal limit) {
         this.available_limit = limit;
     }
 }
