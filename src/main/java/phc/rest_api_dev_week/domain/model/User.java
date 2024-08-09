@@ -1,7 +1,6 @@
-package phc.rest_api_dev_week.model;
+package phc.rest_api_dev_week.domain.model;
 
 import jakarta.persistence.*;
-import org.springframework.boot.autoconfigure.web.WebProperties;
 
 import java.util.List;
 

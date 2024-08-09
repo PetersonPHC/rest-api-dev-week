@@ -1,4 +1,4 @@
-package phc.rest_api_dev_week.model;
+package phc.rest_api_dev_week.domain.model;
 
 import jakarta.persistence.Entity;
 
