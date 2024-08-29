@@ -3,6 +3,7 @@ package phc.rest_api_dev_week.service.impl;
 import org.springframework.stereotype.Service;
 import phc.rest_api_dev_week.domain.model.User;
 import phc.rest_api_dev_week.domain.repository.UserRepository;
+import phc.rest_api_dev_week.exception.UserAlreadlyExistsException;
 import phc.rest_api_dev_week.exception.UserNullException;
 import phc.rest_api_dev_week.service.UserService;
 
@@ -27,9 +28,9 @@ public class UserServiceImp implements UserService {
         if(userToCreate.getName() == null){
             throw new UserNullException();
         }else if (repository.existsById(userToCreate.getId())){
-            throw new IllegalArgumentException("This User ID already exists");
+            throw new UserAlreadlyExistsException("id");
         }else if (repository.existsByAccountNumber(userToCreate.getAccount().getNumber())){
-            throw new IllegalArgumentException("This Account Number already exists");
+            throw new UserAlreadlyExistsException("accountNumber");
         }else{
             return repository.save(userToCreate);
         }

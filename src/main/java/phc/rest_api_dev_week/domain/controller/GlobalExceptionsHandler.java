@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import phc.rest_api_dev_week.exception.UserAlreadlyExistsException;
 import phc.rest_api_dev_week.exception.UserNullException;
 
 import java.util.NoSuchElementException;
@@ -21,7 +22,7 @@ public class GlobalExceptionsHandler {
     }
 
     @ExceptionHandler(IllegalArgumentException.class)
-    public ResponseEntity<String> handleBusinessException(IllegalArgumentException exception){
+    public ResponseEntity<String> handleBusinessException(UserAlreadlyExistsException exception){
         return new ResponseEntity<>(exception.getMessage(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
