@@ -18,3 +18,8 @@ spring:
       settings:
         trace: false
         web-allow-others: false
+
+dependencies:
+  groupId: org.springdoc
+  artifactId: springdoc-openapi-starter-webmvc-ui
+  version: 2.5.0
